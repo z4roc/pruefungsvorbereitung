@@ -5,10 +5,12 @@ import { Callout } from "nextra/components";
 - Klassenattribute existieren nur einmal für alle Objekte einer Klasse zusammen.
 - Klassenmethoden werden für die Klasse aufgerufen und nicht für einzelne Objekte.
 
-<Callout type="info" emoji="ℹ️">
+import CalloutExport from "../../../components/calloutexport";
+
+<CalloutExport>
   Normale Methoden haben Zugriff auf Klassenattribute da diese für jedes
   einzelne Objekt gleich sind, Klassenmethoden jedoch nicht auf Objektattribute.
-</Callout>
+</CalloutExport>
 
 In Java oder auch C# werden Klassenattribute und Methoden als `static` gekennzeichnet.
 
