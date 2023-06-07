@@ -1,0 +1,47 @@
+# Klassenattribute und Methoden
+
+- Klassenattribute existieren nur einmal für alle Objekte einer Klasse zusammen.
+- Klassenmethoden werden für die Klasse aufgerufen und nicht für einzelne Objekte.
+
+import { Callout } from "nextra/components";
+
+<Callout type="info" emoji="ℹ️">
+  Normale Methoden haben Zugriff auf Klassenattribute da diese für jedes
+  einzelne Objekt gleich sind, Klassenmethoden jedoch nicht auf Objektattribute.
+</Callout>
+
+In Java oder auch C# werden Klassenattribute und Methoden als `static` gekennzeichnet.
+
+### Code Beispiel
+
+```cs
+class Wuerfel
+{
+        private static int anzahlVersuche;
+        private int augenzahl;
+
+        public Wuerfel()
+        {
+            augenzahl = 0;
+        }
+
+        public static void darfNochmalWuerfeln()
+        {
+            // Auszuführender Code
+        }
+
+        public int liesAugenzahl()
+        {
+            return augenzahl;
+        }
+}
+```
+
+In dem Beispiel kann auf die Methode `darfNochmalWuerfeln` von überall ohne ein Objekt zu erzeugen zugegriffen werden.
+Das Attribut `anzahlVersuche` ist immer gleich, und kann von jedem Objekt der Klasse Würfel modifiziert werden.
+
+### Klassenattribute und Methoden in UML
+
+Klassenattribute und Methoden werden in Klassendiagrammen unterschtrichen.
+
+![UML Klassenattribut](https://firebasestorage.googleapis.com/v0/b/ap-helper-41845.appspot.com/o/uploads%2FScreenshot%202023-06-07%20192358.png?alt=media&token=2ecd571f-30fe-4761-b013-65a33e2439a6)

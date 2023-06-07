@@ -1,0 +1,58 @@
+# Handelskalkulation
+
+Eine Handelskalkulation wird bei einer Kundenanfrage für den Preis eines Produkts benötigt.
+
+## Bezugskalkulation
+
+Die Bezugskalkulation ergibt den **Einstandspreis**, dieser ist der Preis den man für das Beschaffen der Ware bezahlt.
+
+### Berechnung anhand eines Beispiels
+
+| Schritt                            | Wert       |
+| ---------------------------------- | ---------- |
+| **Einkaufspreis (Listenpreis)**    | **400€**   |
+| - Lieferrabatt (5%)                | _20€_      |
+| = **Zieleinkaufspreis**            | 380€       |
+| - Lieferskonto (2%)                | _7,6€_     |
+| = **Bareinkaufspreis**             | **372,4€** |
+| + Bezugskosten (Versand)           | _19,6€_    |
+| = **Einstandspreis (Bezugspreis)** | 392€       |
+
+## Verkaufspreis ermitteln
+
+Der erste Schritt ist die **Selbskosten** zu berechnen, also Aufwand der in der eigenen Firma entsteht mitsamt des Bezugspreises. Der Zuschlag kann als Festwert oder auch Prozentsatz angegeben werden.
+
+| Schritt                                 | Wert    |
+| --------------------------------------- | ------- |
+| **Einstandspreis (Bezugspreis)**        | 392€    |
+| + Handlungskostenzuschlag (z.B. 12,5 %) | 47,04€  |
+| = **Selbstkosten**                      | 439,04€ |
+
+Da Unternehmen einen Gewinn erzielen wollen wird ein Gewinnzuschlaf hinzuaddiert. Für ein Angebot kommt noch ein Kundenskonto und ein Kundenrabatt bei z.B. Langzeitkunden hinzu.
+
+import { Callout } from "nextra/components";
+
+<Callout type="warning" emoji="⚠️">
+  Kundenskonto und Rabatt dürfen nicht einfach dazu gerechnet werden, dies
+  schmälert den Gewinn
+</Callout>
+
+| Schritt                | Wert    |
+| ---------------------- | ------- |
+| **Selbstkosten**       | 439,04€ |
+| + Gewinn (z.B. 10 %)   | 44,1€   |
+| = **Barverkaufspreis** | 485,10€ |
+
+Der Barverkaufspreis sind hier nicht 100% Prozent des Preises, wenn man noch einen Skonto mit 3% und einen Rabatt mit 5% dazu rechnen möchte ist der Barverkaufspreis 92% des Listenverkaufspreises, d.h. Skonto und Rabatt müssen mit einem Dreisatz ermittelt werden.
+
+`Skonto Hinzufügen = 485,10€ / 97 = 5,001 * 100 = 500,10€`
+
+`Rabatt hinzufügen = 500,10 / 95 = 5,264 * 100 = 526,42€`
+
+| Schritt                   | Wert    |
+| ------------------------- | ------- |
+| **Barverkaufspreis**      | 485,10€ |
+| + Skonto (z.B. 3 %)       | 15€     |
+| = **Zielverkaufspreis**   | 500,10€ |
+| + Rabatt (z.B. 5 %)       | 26,32€  |
+| = **Listenverkaufspreis** | 526,42€ |

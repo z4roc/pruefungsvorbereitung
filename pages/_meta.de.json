@@ -1,7 +1,7 @@
 {
   "index": "Willkommen",
-  "another": "Another Page",
-  "advanced": "Advanced (A Folder)",
+  "ap1": "Abschlussprüfung Teil 1",
+  "ap2": "Abschlussprüfung Teil 2",
   "about": {
     "title": "About",
     "type": "page"
