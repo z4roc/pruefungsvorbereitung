@@ -1,0 +1,54 @@
+# Abstrakte Klassen
+
+Abstrakte Klassen sind Klassen, die einen Bauplan für andere Klassen vorgeben, deswegen lassen sich auch keine Objekte aus den abstrakten Klassen instanziieren. Erbende Klassen bekommen durch _abstrakte Methoden_ bestimmte Signaturen, die sie implementieren müssen wenn sie aus einer abstrakten Klasse erben wollen. Abstrakte Methoden sind Methoden ohne Rumpf, die von den erbenden Klassen überschrieben werden müssen.
+
+![alt](https://firebasestorage.googleapis.com/v0/b/ap-helper-41845.appspot.com/o/uploads%2F1685433727644.png?alt=media&token=cecea1aa-2aa1-49d7-89fc-c20ae60acc64)
+
+## Abstrakte Klasse Figur
+
+```java
+public abstract class Figur
+{
+    protected int punktzahl;
+    protected boolean istEingetragen;
+
+    public Figur()
+    {
+        istEingetragen = false;
+        punktzahl = 0;
+    }
+
+    public boolean istEingetragen()
+    {
+        return istEingetragen;
+    }
+
+    public int liesPunktzahl()
+    {
+        return punktzahl;
+    }
+
+    public abstract void trageEin(int[] pAugenzahl);
+}
+```
+
+## Klasse Einser
+
+```java
+public class Einser extends Figur
+{
+    public void trageEin(int[] pAugenzahl)
+    {
+        // nur 1er werden eingetragen
+
+        for (int w = 0; w < pAugenzahl.length; w++)
+        {
+            if (pAugenzahl[w] == 1)
+            {
+                punktzahl += pAugenzahl[w];
+            }
+        }
+        istEingetragen = true;
+    }
+}
+```
