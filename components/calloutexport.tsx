@@ -1,8 +1,8 @@
-import { Callout } from "nextra/components";
+import { Callout } from "nextra-theme-docs";
 
-export default function Callouter(props) {
+export default function CCallout(props) {
   return (
-    <Callout type="warning" emoji="⚠️">
+    <Callout type="warning" emoji="⚠">
       {props.children}
     </Callout>
   );
