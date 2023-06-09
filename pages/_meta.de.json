@@ -1,15 +1,5 @@
 {
-  "index": "Willkommen",
+  "index": "Intro",
   "ap1": "Abschlussprüfung Teil 1",
-  "ap2": "Abschlussprüfung Teil 2",
-  "about": {
-    "title": "About",
-    "type": "page"
-  },
-  "contact": {
-    "title": "Contact ↗",
-    "type": "page",
-    "href": "https://twitter.com/turbointerl9",
-    "newWindow": true
-  }
+  "ap2": "Abschlussprüfung Teil 2"
 }

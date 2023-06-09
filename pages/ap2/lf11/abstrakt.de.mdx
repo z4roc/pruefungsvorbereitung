@@ -2,11 +2,21 @@
 
 Abstrakte Klassen sind Klassen, die einen Bauplan für andere Klassen vorgeben, deswegen lassen sich auch keine Objekte aus den abstrakten Klassen instanziieren. Erbende Klassen bekommen durch _abstrakte Methoden_ bestimmte Signaturen, die sie implementieren müssen wenn sie aus einer abstrakten Klasse erben wollen. Abstrakte Methoden sind Methoden ohne Rumpf, die von den erbenden Klassen überschrieben werden müssen.
 
+## Abstrakte Klassen in Klassendiagrammen
+
+Abstrakte Klassen müssen mit einem `{abstract}` oben gekennzeichnet werden, die abstrakten Methoden ebenfalls.
+
 ![alt](https://firebasestorage.googleapis.com/v0/b/ap-helper-41845.appspot.com/o/uploads%2F1685433727644.png?alt=media&token=cecea1aa-2aa1-49d7-89fc-c20ae60acc64)
 
-## Abstrakte Klasse Figur
+## Abstrakte Klassen in Code
 
-```java
+Basierend auf dem Klassendiagramm siehe oben.
+
+### Abstrakte Klasse Figur
+
+Um eine Klasse als abstrakt zu deklarieren muss vor `class` das `abstract` gesetzt werden, das gleiche gilt für Methoden.
+
+```java copy showLineNumbers filename="Figur.java"
 public abstract class Figur
 {
     protected int punktzahl;
@@ -32,15 +42,15 @@ public abstract class Figur
 }
 ```
 
-## Klasse Einser
+### Erbende Klasse Einser
 
-```java
+Da die Klasse `Einser` aus `Figur` erbt, muss sie die abstrakte Methode `trageEin` selbst implementieren.
+
+```java copy showLineNumbers filename="Einser.java"
 public class Einser extends Figur
 {
     public void trageEin(int[] pAugenzahl)
     {
-        // nur 1er werden eingetragen
-
         for (int w = 0; w < pAugenzahl.length; w++)
         {
             if (pAugenzahl[w] == 1)

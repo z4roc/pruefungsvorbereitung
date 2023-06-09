@@ -22,6 +22,16 @@ const config: DocsThemeConfig = {
   search: {
     placeholder: "Themen oder Inhalte suchen...",
   },
+  toc: {
+    title: "Auf dieser Seite",
+  },
+  editLink: {
+    text: "Diese Seite bearbeiten",
+    component: () => <div></div>,
+  },
+  feedback: {
+    content: "Fragen? Gib uns Feedback",
+  },
 };
 
 export default config;

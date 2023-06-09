@@ -1,0 +1,56 @@
+# SQL CRUD (CREATE, READ, UPDATE, DELETE)
+
+## [Wiederholung Daten Lesen (SQL SELECT)](../../ap1/lf5/sql)
+
+## Daten hinzufügen (SQL INSERT)
+
+Neue Datensätze können über das `INSERT INTO` Statement hinzugefügt werden.
+
+```sql copy filename="Syntax"
+INSERT INTO tabelle(spalte1, spalte2, ...)
+VALUES(wert1, wert2, ...)
+```
+
+import { Callout } from "nextra-theme-docs";
+
+<Callout type="info" emoji="ℹ">
+  Spalten die eine `Id` beinhalten und automatisch hochgezählt werden
+  `AUTO_INCREMENT` bekommen automatisch den nächst möglichen Wert.
+</Callout>
+
+Wenn in alle Spalten Daten hinzugefügt werden, so muss man nach der Tabelle nicht zusätzlich die Spaltennamen angeben.
+
+```sql copy filename="Syntax"
+INSERT INTO tabelle
+VALUES(wert1, wert2)
+```
+
+## Daten löschen (SQL DELETE)
+
+Datensätze werden mit dem `DELETE` Statement gelöscht.
+Die Syntax ähnelt hier sehr dem `SELECT`.
+
+```sql copy filename="Syntax"
+DELETE FROM tabelle
+WHERE bedingung
+```
+
+<Callout type="warning" emoji="⚠">
+  Die Bedingung gibt an welche Datensätze gelöscht werden sollen, in realen
+  Szenarien empfiehlt es sich daher immer mit einem `SELECT` zu prüfuen welche
+  Datensätze gelöscht werden.
+</Callout>
+
+Sollte keine `WHERE` Bedingung angegeben werden, so werden alle Datensätze gelöscht.
+
+## Daten ändern (SQL UPDATE)
+
+Daten können mit dem `UPDATE` Statement von SQL geändert werden. Die Syntax unterscheidet sich jedoch ein wenig vom Rest.
+
+```sql copy filename="Syntax"
+UPDATE tabelle
+SET spalte1 = wer1, spalte2 = wert2, ...
+WHERE bedingung
+```
+
+Wie auch beim `DELETE` werden alle Datensätze ohne `WHERE` Bedingung geändert. Auch hier empfiehlt es sich einen `UPDATE` Befehl zunächst mit einem `SELECT` zu überprüfen.
