@@ -1,0 +1,137 @@
+import { Callout } from "nextra-theme-docs";
+
+# Datenformate vergleichen
+
+Daten werden in den unterschiedlichsten Formen gespeichert und übermittelt.
+
+Die gängigsten Formate sind dabei `CSV`, `XML` und `JSON`.
+
+## Comma Seperated Values `CSV`
+
+Eine CSV Datei ist die simpelste Art der Datenspeicherung,
+hier werden Werte pro Zeile schlicht durch einen _Seperator_ im Regelfall ein Komma `,` oder ein Semikolon `;` getrennt.
+
+In der ersten Zeile werden die Namen vergeben um die Werte später zuordnen zu können.
+
+Hier ein Beispiel mit einem `;` als Seperator.
+
+```csv filename="Syntax.csv"
+name1;name2;name3
+wert1;wert2;wert3
+...
+```
+
+Angenommen wir wollen eine oder mehrere `Personen` mit `name` und `alter` speichern
+
+```csv filename="Personen.csv"
+name;alter
+arthur;20
+max;21
+```
+
+## Javascript Object Notation `JSON`
+
+Mit die beliebteste und aktuell am weitesten verbreitete Art Daten zu speichern ist die _Javascript Object Notation_.
+
+Eine `.json`-Datei beinhaltet immer ein Objekt oder eine Sammlung an Objekten.
+
+- Ein Objekt wird mit geschwungenen Klammern definiert `{}`
+
+- Eine Sammlung an Objekten (Array) wird mit eckigen Klammern definiert `[]`
+
+- Ein Attribut wird immer mit einem Namen und einem Wert gespeichert `"name":"wert"`
+
+```json filename="JSON Syntax"
+{
+  "Objekt": {
+    "name": "wert"
+  },
+  "Array": [
+    {
+      "name": "wert"
+    }
+  ]
+}
+```
+
+Beispielobjekt `Person` mit den Attributen `name` vom Typ _String_ und `alter` vom Typ _Integer_ als JSON.
+
+```json filename="Person.json"
+{
+  "name": "Arthur",
+  "alter": 20
+}
+```
+
+Sammlung (Array) an Personen.
+
+```json filename="Personen.json"
+[
+  {
+    "name": "Arthur",
+    "alter": 20
+  },
+  {
+    "name": "Max",
+    "alter": 21
+  }
+]
+```
+
+<Callout type="info" emoji="ℹ">
+  Bei der manuellen Erstellung von `JSON`-Dokumenten empfiehlt es sich einen
+  [Json-Validator](https://www.google.com/search?q=json+validator) zu verwenden
+  um sicherzugehen, dass das Dokument verarbeitet werden kann.
+</Callout>
+
+## Extended Markup Language `XML`
+
+Eine ebenfalls weit verbreitete Art Daten zu speichern sind `XML`-Dateien.
+
+Ein `XML`-Dokument beginnt immer mit der Dokumentendeklaration.
+
+```html
+<?xml version="1.0" encoding="UTF-8"?>
+```
+
+Anders als bei `JSON`-Dokumenten werden Objekte durch _Tags_ definiert.
+
+```html filename="XML Syntax"
+<!-- öffnende und schließende Tags -->
+<Objekt>Wert</Objekt>
+
+<!-- selbstschließende (leere) Tags -->
+<Objekt />
+```
+
+Werte werden zwischen die Tags geschrieben,
+innerhalb eines Tags kann man einen oder mehrere Objekte durch neue Tags definieren.
+
+```html filename="Person.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<Person>
+  <name>Arthur</name>
+  <alter>20</alter>
+</Person>
+```
+
+Mehrere Personen
+
+```html filename="Personen.xml"
+<?xml version="1.0" encoding="UTF-8"?>
+<Personen>
+  <Person>
+    <name>Arthur</name>
+    <alter>20</alter>
+  </Person>
+  <Person>
+    <name>Max</name>
+    <alter>21</alter>
+  </Person>
+</Personen>
+```
+
+<Callout type="info" emoji="ℹ">
+  Wie auch bei `JSON`-Dokumenten empfiehlt es sich hier einen
+  [XML-Validator](https://www.google.com/search?q=xml+validator) zu verwenden.
+</Callout>

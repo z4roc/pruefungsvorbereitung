@@ -1,1 +1,214 @@
+import { Callout } from "nextra-theme-docs";
+
 # Daten mit SQL Lesen
+
+Grundlegend gilt bei SQL Abfragen sie immer der Aufgabenstellung entsprechend zu formulieren.
+Ausgaben müssen immer exakt dem Anspruch der Aufgabe entsrpechen.
+
+Um Daten zu lesen wird das `SELECT` Statement verwendet.
+In diesem Teil werden die Spalten festgelegt die Ausgelesen werden sollen, mit einem `*`
+kann man alle Spalten auswählen. Der `FROM`-Teil beinhaltet die ausgewählten Tabellen für die Abfrage.
+Im `WHERE`-Bereich kann man die Abfrage einschränken durch Bedingungen um bestimmte Datensätze auszuwählen.
+
+```sql copy filename="Syntax"
+SELECT spalte1, spalte2, ... --Welche Spalten brauche ich? Alternativ mit * alle
+FROM tabelle --Welche Tabelle lese ich aus?
+WHERE bedingung --Welche Datensätze muss ich ausgeben?
+```
+
+## Bedingungen Formulieren `WHERE`
+
+Daten in SQL werden im `WHERE`-Bereich mit der Formulierung einer Bedingung durch Operatoren gefiltert.
+Eine Liste mit verwendbaren Operatoren findet ihr hier:
+
+| Operator  | Beschreibung                                             |
+| --------- | -------------------------------------------------------- |
+| `=`       | Gleich                                                   |
+| `>`       | Größer als                                               |
+| `<`       | Kleiner als                                              |
+| `<>`      | Ungleich (Je nach SQL Version auch als `!=` geschrieben) |
+| `>=`      | Größer gleich                                            |
+| `<=`      | Kleiner gleich                                           |
+| `BETWEEN` | In einem bestimmten Bereich eingrenzen                   |
+| `LIKE`    | Suche nach einem Pattern                                 |
+| `IN`      | Beinhaltet den Wert                                      |
+
+## SQL Alias (Spalten- / Tabellenalias)
+
+Häufig wird in Aufgaben genannt, dass Spalten einen bestimmten Namen haben sollen in einer Abfrage.
+Manchmal aber werden Abfragen allerdings auch so groß, dass man nicht immer erneut den gesamten Namen einer Tabelle schreiben möchte.
+
+Durch einen Alias `as` kann man in einer SQL Abfrage einen neuen Namen vergeben, der sich bei der Laufzeit verwenden lassen kann.
+
+Ein Tabellen- / oder auch Spaltenalias lassen sich durch ein `as` definieren, nach dem `as` kann man den neuen Namen vergeben.
+
+<Callout type="warning" emoji="⚠">
+  Je nach SQL Version wird das `as` nicht benötigt, besser nochmal die
+  Dokumentation zur verwendeten SQL Version durchlesen.
+</Callout>
+
+### Tabellenalias
+
+Im `FROM`-Teil kann man Tabellen einen neuen Namen vergeben um diese bei langen Abfragen ggf. zu verkürzen.
+
+```sql copy filename="Syntax"
+SELECT*
+FROM tabelle as t
+WHERE t.wert = 1
+```
+
+### Spaltenalias
+
+Einen Spaltenalias legt man im `SELECT` fest. Dieser erscheint dann auf der Ausgabe.
+
+```sql copy filename="Syntax"
+SELECT Wert as NeuerName
+FROM tabelle
+```
+
+## Daten beim Lesen ordnen `ORDER BY`
+
+Die gewählten Daten werden durch das `ORDER BY`-Statement nach einer Spalte sortiert.
+Dabei kann man aufsteigend `asc` oder auch absteigend `desc` sortieren. Der Standard ist aufsteigend `asc`.
+
+```sql copy filename="ORDER BY Syntax"
+SELECT*
+FROM tabelle
+WHERE bedingung
+ORDER BY spalte ASC|DESC
+```
+
+<Callout type="warning" emoji="⚠">
+  Auch wenn `asc` der Standard ist empfiehlt es sich nach einer explizit
+  gefragten aufsteigenden Sortierung in einer Aufgabenstellung das `asc`
+  zusätzlich anzugeben.
+</Callout>
+
+## SQL Funktionen (Aggregatsfunktionen)
+
+SQL besitzt einige Funktionen die einfache Aufgaben wie zählen oder addieren ausführen könnnen.
+
+### Niedrigster `MIN()` / höchster `MAX()` Wert
+
+Mit `MIN()` und `MAX()` lassen sich die entweder größten oder kleinsten Spaltenwerte ausgeben. Hier ein beispiel mit der `MAX()`-Funktion.
+
+```sql copy filename="MIN/MAX Syntax"
+SELECT MAX(spalte)
+FROM tabelle
+```
+
+### Summe `SUM()`
+
+Um die Summe einer gesamten Spalte auszugeben wird die `SUM()`-Funktion benutzt.
+
+<Callout type="info" emoji="ℹ">
+  Bei `SUM()` werden alle Spaltenwerte der Sellektion *zusammenaddiert*.
+</Callout>
+
+```sql copy filename="SUM() Syntax"
+SELECT SUM(spalte)
+FROM tabelle
+```
+
+### Zählen `COUNT(*)`
+
+Um die anzahl der Spalten zu zählen kann man die `COUNT()`-Funktion verwenden.
+
+<Callout type="info" emoji="ℹ">
+  Bei `COUNT()` werden die Spalten einer Sellektion *gezählt*, es werden nicht
+  die Werte und Inhalte einzelner Zeilen berücksichtigt.
+</Callout>
+
+```sql copy filename="COUNT() Syntax"
+SELECT COUNT(*)
+FROM tabelle
+```
+
+Diese Abfrage gibt z.B. die Anzahl an Datensätzen in einer Tabelle aus.
+
+### Durchschnitt `AVG()`
+
+Die Durschnittssfunktion `AVG()` gibt den Durchschnitt der Werte einer Spalte aus.
+
+```sql copy filename="AVG() Syntax"
+SELECT AVG(spalte)
+FROM tabelle
+```
+
+### Datumsdifferenz `DATEDIFF()`
+
+Mit der `DATEDIFF()`-Funktion lassen sich die _Anzahl der Tage_ zwischen zwei Daten ermitteln.
+
+```sql copy filename="DATEDIFF() Syntax"
+SELECT DATEDIFF(datum1, datum2);
+```
+
+<Callout type="info" emoji="ℹ">
+  Das Datumsformat hierbei ist `yyyy-MM-dd`. Das erste Datum ist Dabei das
+  Ausgangsdatum, also das höhere.
+</Callout>
+
+#### Beispiel
+
+```sql copy filename="DATEDIFF() Beispiel"
+SELECT DATEDIFF("2023-07-12", "2023-07-09") as Datumsdifferenz_in_Tagen;
+```
+
+Hat das Ergebnis
+
+| Datumsdifferenz_in_Tagen |
+| ------------------------ |
+| 3                        |
+
+## Daten gruppieren `GROUP BY`
+
+In Aufgabenstellungen Wie "**Finden Sie die Anzahl der Kunden pro Land**" muss man bestimmte Spalten gruppieren um an das gewünschte Ergebnis zu kommen.
+
+Hier wollen wir in der Beispieltabelle `Kunde` die oben genannte Aufgabenstellung umsetzen.
+Dafür können wir die Abfrage nach der Spalte `Land` **gruppieren** und die Datensätze anschließend mit der Aggregatsfunktion `COUNT()` zählen.
+
+| KundenId | Name   | Land        |
+| -------- | ------ | ----------- |
+| 1        | Tom    | Deutschland |
+| 2        | Fritz  | Österreich  |
+| 3        | Hannah | Deutschland |
+
+Eine entsprechende Abfrage mit dessen Ergebnis sieht folgendermaßen aus
+
+```sql copy filename="KundenProLand.sql"
+SELECT COUNT(*) as anzahl_kunden, Land
+FROM Kunde
+GROUP BY Land
+```
+
+| anzahl_kunden | Land        |
+| ------------- | ----------- |
+| 2             | Deutschland |
+| 1             | Österreich  |
+
+## Alternative Bedingung `HAVING`
+
+Aggregatsfunktionen können nicht mit einer `WHERE` Bedingung eingeschränkt werden, da der `SELECT`-Teil immer als letztes ausgeführt wird.
+
+Die Lösung ist das `HAVING`-Statement
+
+Um das Beispiel vom Gruppieren fortzuführen, wollen wir nun nur die Anzahl der Kunden pro Land,
+allerdings nur die Länder mit einer Anzahl an Kunden die größer als 1 ist.
+
+<Callout type="error" emoji="❌">
+  Diese Bedingung in das `WHERE`-Statement zu schreiben würde einen Fehler
+  ausgeben.
+</Callout>
+
+Richtig wäre die Bedingung nach dem `GROUP BY` im `HAVING`-Statement zu formulieren.
+
+```sql copy filename="KundenProLand.sql"
+SELECT COUNT(*) as anzahl_kunden, Land
+FROM Kunde
+GROUP BY Land
+HAVING COUNT(*) > 1
+```
+
+| anzahl_kunden | Land        |
+| ------------- | ----------- |
+| 2             | Deutschland |
