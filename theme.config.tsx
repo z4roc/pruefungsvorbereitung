@@ -14,7 +14,8 @@ const config: DocsThemeConfig = {
   chat: {
     link: "https://discord.gg/usS8XgVYnF",
   },
-  docsRepositoryBase: "https://github.com/z4roc/pruefungsvorbereitung",
+  docsRepositoryBase:
+    "https://github.com/z4roc/pruefungsvorbereitung/tree/main",
   footer: {
     text: "Prüfungsvorbereitung",
   },
@@ -27,7 +28,6 @@ const config: DocsThemeConfig = {
   },
   editLink: {
     text: "Diese Seite bearbeiten",
-    component: () => <div></div>,
   },
   feedback: {
     content: "Fragen? Gib uns Feedback",

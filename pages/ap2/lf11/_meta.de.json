@@ -1,4 +1,5 @@
 {
-  "klassenattribute": "Klassenattribute und Methoden",
-  "abstrakt": "Abstrakte Klassen"
+  "abstrakt": "Abstrakte Klassen und Methoden",
+  "interfaces": "Schnittstellen (Interfaces)",
+  "klassenattribute": "Klassenattribute und Methoden"
 }

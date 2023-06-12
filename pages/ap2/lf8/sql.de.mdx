@@ -1,10 +1,10 @@
-# SQL CRUD (CREATE, READ, UPDATE, DELETE)
+# Daten per SQL hinzufügen / ändern / löschen
 
-## [Wiederholung Daten Lesen (SQL SELECT)](../../ap1/lf5/sql)
+## [Wiederholung Daten Lesen `SQL SELECT`](../../ap1/lf5/sql)
 
-## Daten hinzufügen (SQL INSERT)
+## Daten hinzufügen `SQL INSERT`
 
-Neue Datensätze können über das `INSERT INTO` Statement hinzugefügt werden.
+Neue Datensätze können über das `INSERT INTO{:sql}` Statement hinzugefügt werden.
 
 ```sql copy filename="Syntax"
 INSERT INTO tabelle(spalte1, spalte2, ...)
@@ -25,10 +25,10 @@ INSERT INTO tabelle
 VALUES(wert1, wert2)
 ```
 
-## Daten löschen (SQL DELETE)
+## Daten löschen `SQL DELETE`
 
-Datensätze werden mit dem `DELETE` Statement gelöscht.
-Die Syntax ähnelt hier sehr dem `SELECT`.
+Datensätze werden mit dem `DELETE{:sql}` Statement gelöscht.
+Die Syntax ähnelt hier sehr dem `SELECT{:sql}`.
 
 ```sql copy filename="Syntax"
 DELETE FROM tabelle
@@ -37,15 +37,15 @@ WHERE bedingung
 
 <Callout type="warning" emoji="⚠">
   Die Bedingung gibt an welche Datensätze gelöscht werden sollen, in realen
-  Szenarien empfiehlt es sich daher immer mit einem `SELECT` zu prüfuen welche
+  Szenarien empfiehlt es sich daher immer mit einem `SELECT{:sql}` zu prüfuen welche
   Datensätze gelöscht werden.
 </Callout>
 
-Sollte keine `WHERE` Bedingung angegeben werden, so werden alle Datensätze gelöscht.
+Sollte keine `WHERE{:sql}` Bedingung angegeben werden, so werden alle Datensätze gelöscht.
 
-## Daten ändern (SQL UPDATE)
+## Daten ändern `SQL UPDATE`
 
-Daten können mit dem `UPDATE` Statement von SQL geändert werden. Die Syntax unterscheidet sich jedoch ein wenig vom Rest.
+Daten können mit dem `UPDATE{:sql}` Statement von SQL geändert werden. Die Syntax unterscheidet sich jedoch ein wenig vom Rest.
 
 ```sql copy filename="Syntax"
 UPDATE tabelle
@@ -53,4 +53,5 @@ SET spalte1 = wer1, spalte2 = wert2, ...
 WHERE bedingung
 ```
 
-Wie auch beim `DELETE` werden alle Datensätze ohne `WHERE` Bedingung geändert. Auch hier empfiehlt es sich einen `UPDATE` Befehl zunächst mit einem `SELECT` zu überprüfen.
+Wie auch beim `DELETE{:sql}` werden alle Datensätze ohne `WHERE{:sql}` Bedingung geändert.
+Auch hier empfiehlt es sich einen `UPDATE{:sql}` Befehl zunächst mit einem `SELECT{:sql}` zu überprüfen.

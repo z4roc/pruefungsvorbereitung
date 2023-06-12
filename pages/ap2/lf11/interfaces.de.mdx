@@ -1,0 +1,42 @@
+# Interfaces
+
+Interfaces bieten ebenfalls eine Möglichkeit Abstraktion in Programmen zu erreichen. Anders als bei abstrakten Klassen können Interfaces nur Methodensignaturen vorgeben, d.h. jede Klasse die aus einem Interface erbt, oder hier genannt ein Interface implementiert muss dessen Methoden ohne Rumpf überschreiben.
+
+## Deklaration eines Interfaces
+
+Ein Interface wird nicht mit ~~`class{:jsx}`~~ sondern mit `interface{:tsx}` angelegt. Methoden in Interfaces haben keinen Rumpf.
+
+```java copy showLineNumbers filename="Beobachter.java" {1, 3}
+public interface Beobachter
+{
+    void passiertEreignis();
+}
+```
+
+## Implementierung eines Interfaces
+
+Klassen die aus einem `interface{:tsx}` erben, müssen dies im Falle von Java mit `implements{:dart}`. Geerbte Methoden müssen überschrieben werden.
+
+```java copy showLineNumbers filename="Beobachter.java" {1, 3}
+public class Monitor implements Beobachter
+{
+    public void passiertEreignis()
+    {
+       // Auszuführender Code
+    }
+}
+```
+
+## Interfaces in Klassendiagrammen
+
+Ein Interface muss mit `<<Interface>>` gekennzeichnet sein.
+
+![alt](https://firebasestorage.googleapis.com/v0/b/ap-helper-41845.appspot.com/o/uploads%2F1685454542027.png?alt=media&token=6c2b6849-42ff-493a-bb1c-a9a250e2883e)
+
+import { Callout } from "nextra-theme-docs";
+
+<Callout type="warning" emoji="⚠">
+  Der Pfeil zeigt anders herum als bei der normalen Vererbung. Da durch das
+  implementieren eines Interfaces die Methoden überschrieben werden müssen,
+  beinhalten die implementierenden Klassen die Methoden ebenfalls.
+</Callout>

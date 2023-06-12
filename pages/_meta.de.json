@@ -1,5 +1,12 @@
 {
   "index": "Intro",
   "ap1": "Abschlussprüfung Teil 1",
-  "ap2": "Abschlussprüfung Teil 2"
+  "ap2": "Abschlussprüfung Teil 2",
+  "wirtschaft": "Wirtschaft",
+  "Donate": {
+    "title": "Dontate",
+    "type": "page",
+    "href": "https://ko-fi.com/zaroc",
+    "newWindow": true
+  }
 }
