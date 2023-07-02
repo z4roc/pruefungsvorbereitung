@@ -1,8 +1,23 @@
 import React from "react";
-import { DocsThemeConfig } from "nextra-theme-docs";
+import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
+import { useRouter } from "next/router";
 
 const config: DocsThemeConfig = {
   logo: <span>Prüfungsvorbereitung</span>,
+  head: () => {
+    const { asPath, defaultLocale, locale } = useRouter();
+    const { frontMatter } = useConfig();
+
+    const url = "https://pruefungsvorbereitung.aktamirov.de" + (defaultLocale === locale ? asPath : `/${locale}${asPath}`);
+
+    return (
+      <>
+      <meta property="og:url" content={url}>  </meta>
+      <meta property="og:title" content={frontMatter.title || 'Pruefungsvorbereitung'}></meta>
+      <meta property="og:description" content={frontMatter.description || "Thema"}></meta>
+      </>
+    );
+  },
   useNextSeoProps() {
     return {
       titleTemplate: "%s - Prüfungsvorbereitung",
