@@ -1,0 +1,40 @@
+# eEPK
+
+Ein eEPK veraunschaulicht den Ablauf eines Prozesses.
+
+Ein eEPK kann mit folgenden Komponenten dargestellt werden.
+
+| Komponente                                                                                                                                                                            | Name                 |
+| ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
+| ![alt](https://firebasestorage.googleapis.com/v0/b/ap-helper-41845.appspot.com/o/uploads%2FScreenshot%202023-07-04%20083027.png?alt=media&token=e3029529-9fe0-4094-a9a1-74ea6797bd62) | Ereignis             |
+| ![alt](/funktion_eepk.png)                                                                                                                                                            | Funktion             |
+| ![alt](/organ_eepk.png)                                                                                                                                                               | Organisationseinheit |
+| ![alt](/info_eepk.png)                                                                                                                                                                | Informationseinheit  |
+
+Das eEPk beginnt und endet mit einem oder mehreren Ereignissen.
+Auf ein Ereignis folgt immer eine Funktion, oder auch eine Abzweigung / Verknüpfung.
+
+import { Callout } from "nextra-theme-docs";
+
+<Callout type="error" emoji="🛑">
+  Auf ein Ereignis darf nicht erneut ein Ereignis folgen. Ebenso darf auf eine
+  Funktion nicht noch eine Funktion folgen.
+</Callout>
+
+Organisations und Informationseinheiten werden immer einer Funktion zugeordnet, links die Organisationseinheit, rechts die Informationseinheit.
+
+= Organisationseinheit => Wer ist betroffen?
+
+= Informationseinheit => Woher kommen die Informationen für diese Funktion?
+
+## Abzweigungen
+
+Bei Abzweigungen gibt es folgende Möglichkeiten:
+
+- AND = UND, mehrere Ereignisse / Funktionen werden verknüpft.
+- OR = ODER, ein oder mehrere Ereignisse können eintreten.
+- XOR = ENTWEDER ODER, genau eins von mehreren Ereignissen kann eintreten.
+
+<Callout type="error" emoji="🛑">
+  Auf ein Ereignis darf kein **OR / XOR** folgen.
+</Callout>

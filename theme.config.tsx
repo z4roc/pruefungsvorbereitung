@@ -12,9 +12,9 @@ const config: DocsThemeConfig = {
 
     return (
       <>
-      <meta property="og:url" content={url}>  </meta>
-      <meta property="og:title" content={frontMatter.title || 'Pruefungsvorbereitung'}></meta>
-      <meta property="og:description" content={frontMatter.description || "Thema"}></meta>
+      <meta property="og:url" content={url}/> 
+      <meta property="og:title" content={frontMatter.title || 'Pruefungsvorbereitung'}/>
+      <meta property="og:description" content={frontMatter.description || "Thema"}/>
       </>
     );
   },
