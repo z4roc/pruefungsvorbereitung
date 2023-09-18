@@ -1,0 +1,44 @@
+import { Steps } from "nextra-theme-docs";
+
+# Algorithmen entwickeln
+
+Um einen Algorthmus zu entwickeln kann man einem ganz einfachem Muster folgen.
+
+### Beispielaufgabe
+
+`Liste ganzer Zahlen aufsteigend sortieren.`
+
+<Steps>
+
+### Algorithmus als Blackbox
+
+Bei der Blackbox wird links der Input für den Algorithmus definiert und rechts die Ausgabe.
+
+![alt](/black_box.png)
+
+### Testdaten und Beispiele definieren
+
+Bei den Testdaten wird der erwartete Input und der erwartete Output definiert.
+
+![alt](/testdaten.png)
+
+### Algorithmus in "strukturierter Umgangssprache"
+
+Dies ist der erste Entwurf des Algorithmus, nur in Worte gefasst. _Wie müsste man den Algorithmus programmieren?_
+
+```
+prüfen, ob alle alle Zahlen in Liste u schon abgefragt wurden
+solange nicht alle Zahlen abgefragt wurden
+    Liste u nach der kleinsten Zahl durchsuchen
+    kleinste Zahl an Liste s anhängen
+    kleinste Zahl aus Liste u entfernen
+    prüfen, ob alle Zahlen aus Liste u schon abgefragt wurden
+Liste s zurückgeben
+
+```
+
+### Algorithmus als Struktogramm
+
+![alt](/struktogramm.png)
+
+</Steps>
