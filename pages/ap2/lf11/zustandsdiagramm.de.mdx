@@ -1,0 +1,60 @@
+# Zustandsdiagramm
+
+Ein Zustandsdiagramm dient zum Entwurf von Systemen, dessen Verhalten vom Zustand des Systems abhängt.
+
+## Woran erkennt man einen Zustand?
+
+- relevante Dauer
+- Verhalten unterscheidet sich zu anderen Zuständen
+- wird durch ein Ereignis erreicht oder verlassen
+
+## Entwicklung eines Zustandsdiagramms
+
+import { Steps } from "nextra-theme-docs";
+
+<Steps>
+
+### Zustände identifizieren
+
+![zustand1](/zustand1.png)
+
+### Zustandsübergänge ("Transitionen") und auslösende Ereignisse identifizieren
+
+- Pfeile dahin, in welchen Zustand nun gewechselt wird.
+- Ereignis mit `ereignis(pParameter)` beim Pfeil eintragen.
+
+![zustand2](/zustand2.png)
+
+### Anfangs- und eventuelle Endzustände identifizieren
+
+![zustand3](/zustand3.png)
+
+### (Re-)Aktionen des Systems identifizieren
+
+- `entry`: Was passiert wenn man in den Zustand hinein kommt?
+- `exit`: Was passiert wenn der Zustand verlassen wird?
+
+![zustand4](/zustand4.png)
+
+### Mehrdeutige Zustandsübergänge, Wächterbedingungen
+
+#### Wächterbedingung
+
+Eine Art Kondition die eintreffen muss.
+
+Syntax:
+
+`[methode(pParameter) = erwarteterRückgabewert]`
+
+z. B.
+
+`[istZahlGerade(pZahl) = true]`
+
+#### Mehrdeutige Zustandsübergänge
+
+Wenn mehrere Bedingungen abgefragt werden oder mehrere Ereignisse zu einem Zustand führen,
+kann man diese mit `AND` oder `OR` ergänzen.
+
+![zustand5](/zustand5.png)
+
+</Steps>

@@ -2,5 +2,6 @@
   "algorithmen": "Algorithmen entwickeln",
   "abstrakt": "Abstrakte Klassen und Methoden",
   "interfaces": "Schnittstellen (Interfaces)",
-  "klassenattribute": "Klassenattribute und Methoden"
+  "klassenattribute": "Klassenattribute und Methoden",
+  "zustandsdiagramm": "Zustandsdiagramm"
 }
