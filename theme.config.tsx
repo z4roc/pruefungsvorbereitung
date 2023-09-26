@@ -1,9 +1,10 @@
 import React from "react";
 import { DocsThemeConfig, useConfig } from "nextra-theme-docs";
 import { useRouter } from "next/router";
+import Logo from "./components/Logo";
 
 const config: DocsThemeConfig = {
-  logo: <span>Prüfungsvorbereitung</span>,
+  logo: <Logo/>,
   head: () => {
     const { asPath, defaultLocale, locale } = useRouter();
     const { frontMatter } = useConfig();
@@ -13,7 +14,8 @@ const config: DocsThemeConfig = {
     return (
       <>
       <meta property="og:url" content={url}/> 
-      <meta property="og:title" content={frontMatter.title || 'Pruefungsvorbereitung'}/>
+      <link rel="icon" type="image/x-icon" href="/favicon.png"></link>
+      <meta property="og:title" content={frontMatter.title || 'Prüfungsvorbereitung'}/>
       <meta property="og:description" content={frontMatter.description || "Thema"}/>
       </>
     );
