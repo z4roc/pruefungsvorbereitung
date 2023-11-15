@@ -1,3 +1,4 @@
 {
-  "sql": "SQL hinzufügen / ändern / löschen"
+  "sql": "SQL hinzufügen / ändern / löschen",
+  "sql_user_privilages": "SQL User anlegen"
 }

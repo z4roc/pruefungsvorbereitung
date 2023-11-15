@@ -1,0 +1,45 @@
+# SQL User anlegen und Rechte vergeben
+
+## User anlegen und löschen
+
+User in SQL (bei uns MySQL) können mit
+
+```sql
+CREATE USER 'username'@'host' IDENTIFIED BY 'password'
+```
+
+erstellt werden.
+Sie können auch mit.
+
+```sql
+DROP USER 'username'@'host'
+```
+
+wieder gelöscht werden.
+
+## Rechte vergeben und entziehen
+
+Die Syntax für die Rechtevergabe sieht wie folgt aus
+
+```sql
+GRANT <privilage> ON <database>.<table> TO 'username'@'host'
+```
+
+Um nun alle Privliegien zu vergeben auf alle Datenbanken und Tabellen kann
+man den Command so gestallten
+
+```sql
+GRANT ALL PRIVILAGES ON *.* TO 'username'@'host'
+```
+
+### Liste von zu lernenden Rechten
+
+- `SELECT`: Lesen der Daten
+- `UPDATE`: Updaten von Daten
+- `DELETE`: Löschen von Daten
+
+So kann man z. B. nur Lesen und Updaten erlauben
+
+```sql
+GRANT SELECT, UPDATE ON *.* TO 'username'@'host'
+```
